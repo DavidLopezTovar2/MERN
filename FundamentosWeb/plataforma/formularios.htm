@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <div>
+        <h1>Registration Form</h1>
+    </div>
+    <div>
+        <label for="firstName">First Name:*</label>
+        <input type="text" name="firstName" id="">
+    </div>
+    <div>
+        <label for="LastName">Last Name:*</label>
+        <input type="text" name="lastName" id="">
+    </div>
+    <div>
+        <label for="password">Password:*</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <div>
+        <label for="confPass">Confirm Password:*</label>
+        <input type="password" name="confpass" id="confPass">
+    </div>
+    <div>
+        <label for="birthday">Birthday</label>
+        <input type="date" name="birthday" id="birthday" max="2022-03-30">
+    </div>
+    <div>
+        <label for="gender">Gender Identify</label>
+    </div>
+    <div>
+        <input type="radio" name="gender" value="male" id="gender">
+        <label for="gender">Male</label>
+        <input type="radio" name="gender" value="female" id="gender">
+        <label for="gender">Female</label>
+        <input type="radio" name="gender" value="nonBin" id="gender">
+        <label for="gender">Non-binary</label>
+        <input type="radio" name="gender" value="notAns" id="gender">
+        <label for="gender">I prefer not to answer</label>
+    </div>
+    <div>
+        <label for="description">A short decription about shourself: <br> </label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+        <label for="favLang">favorite Language:</label>
+        <select name="favLang" id="favLang">
+            <option value="javaScript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="dart">Dart</option>
+            <option value="java">Java</option>
+            <option value="sql">SQL</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="go">Go</option>
+        </select>
+    </div>
+
+    <div>
+        <input type="checkbox" name="emailUpdates" id="emailUpdates">
+        <label for="emailUpdates">Yes, I would like to receive periodic email updates</label>
+    </div>
+    <div>
+        <input type="submit" name="createAccount" id="createAccount" value="Create Account">
+    </div>
+    <div>
+        <p>* Indicates a require field</p>
+    </div>
+    <div>
+        <label for="color">Select your favorite color: </label>
+        <input type="color" name="color" id="color">
+    </div>
+</body>
+
+</html>
