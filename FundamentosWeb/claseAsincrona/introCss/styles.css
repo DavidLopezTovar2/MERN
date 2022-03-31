@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 3px red;
+}
+
+body {
+    font-family: 'Poppins', poppins;
+}
+
+.container{
+    display: flex;
+    height: 150vh;
+};
+
+.left-container, .right-container{
+    height: 100%;
+}
+
+.left-container{
+    width: 55%;
+    background-image: url(https://images-ext-1.discordapp.net/external/NFBXpbc3Z-AarfWmYCsMlTSG2aw0yWG5WxHIiPe9sbs/https/abs.twimg.com/sticky/illustrations/lohp_1302x955.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+};
+
+.left-container img{
+    width: 360px;
+    height: 600px;
+}
+
+.right-container{
+    width: 45%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+
+};
+
+.logo-container img{
+    width: 43px;
+    height: auto;
+}
+
+.title-container h1{
+    color: white;
+    font-size: 64px;
+    font-weight: 800px;
+}
+
+.title-container{
+    margin: 48px 20px;
+}
+
+.subtitle-container h3{
+    color: #e7e9ea;
+    font-size: 31px;
+    font-weight: 800px;
+}
+
+.subtitle-container{
+    margin: 40px 20px;
+}
+
+.btns-container button img{
+    width: 20px;
+}
+
+.btns-container button{
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.btns-container{
+    margin: 30px;
+    margin-bottom: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
