@@ -1,8 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    border: 3px red;
-}
 
 body {
     font-family: 'Poppins', poppins;
@@ -10,7 +5,7 @@ body {
 
 .container{
     display: flex;
-    height: 150vh;
+    height: 100vh;
 };
 
 .left-container, .right-container{
@@ -18,50 +13,67 @@ body {
 }
 
 .left-container{
-    width: 55%;
+    width: 45%;
     background-image: url(https://images-ext-1.discordapp.net/external/NFBXpbc3Z-AarfWmYCsMlTSG2aw0yWG5WxHIiPe9sbs/https/abs.twimg.com/sticky/illustrations/lohp_1302x955.png);
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-left: 0px
 };
 
 .left-container img{
-    width: 360px;
-    height: 600px;
+    width: 300px;
+    height: auto;
 }
 
 .right-container{
-    width: 45%;
+    width: 55%;
     background-color: black;
     display: flex;
     flex-direction: column;
-
 };
 
-.logo-container img{
-    width: 43px;
+.logo-container{
+     height: 25px;
+}
+
+.logo-container img {
+    width: 50px;
     height: auto;
+    margin: 8% 8%;
+}
+
+.title-container{
+    display: flex;
+    height: 20%;
 }
 
 .title-container h1{
     color: white;
-    font-size: 64px;
-    font-weight: 800px;
+    font-size: 40px;
+    font-weight: 700px;
+    margin: 8% 8%;
 }
 
-.title-container{
-    margin: 48px 20px;
+.subtitle-container{
+    display: flex;
+    height: 20%;
 }
 
 .subtitle-container h3{
     color: #e7e9ea;
-    font-size: 31px;
+    font-size: 28px;
     font-weight: 800px;
+    margin-left: 8%;
 }
 
-.subtitle-container{
-    margin: 40px 20px;
+.btns-container{
+    margin-bottom: 20px;
+    margin-left: 10%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .btns-container button img{
@@ -70,16 +82,108 @@ body {
 
 .btns-container button{
     width: 300px;
+    height: 33px;
     background-color: white;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.btns-container{
-    margin: 30px;
-    margin-bottom: 20px;
-    padding: 30px;
     display: flex;
-    flex-direction: column;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    border-color: black;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
 }
 
+.logo-text-container{
+    width: 100%;
+    margin-left: 23%;
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.btns-container button:hover{
+
+  background-color: #09A5DC;
+  color: white;
+}
+
+.btns-container input{
+    width: 300px;
+    height: 33px;
+    background-color: #09A5DC;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    border-color: black;
+}
+
+.btns-container input:hover{
+
+    background-color: white;
+    color: black;
+  }
+
+.registerPhone{
+    color: cyan;
+}
+
+.separator-container{
+    display: flex;
+    width: 300px;
+    height: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.separator-container p {
+    color: white;
+    font-size: 15px;
+    font-weight: 800px;
+    width: 10%;
+    text-align: center;
+}
+
+.separator-container img {
+    width: 45%;
+    height: 10px;
+}
+
+.terms-container{
+    width: 300px;
+}
+
+.terms-container p{
+    color: gray;
+    font-size: 9px;
+    text-align: left;
+}
+
+.terms-container a{
+    color: #09A5DC;
+}
+
+.signup-container{
+    width: 300px;
+    color: white;
+    display: flex;
+    text-align: left;
+    border-color: aqua;
+}
+
+.register-container button{
+    display: flex;
+    background-color: black;
+    color: #09A5DC;
+    border-color: #09A5DC;
+    border-width: 2px;
+    text-align: center;
+    align-items: center;
+    width: 300px;
+    height: 33px;
+}
+
+.register-container button div{
+    margin-left: 40%;
+}

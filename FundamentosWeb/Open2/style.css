@@ -1,0 +1,16 @@
+ /** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+h1, h3 {
+    color: lightgray;
+}
+body {color: green;
+}
+li {
+    
+}
+ul {
+    list-style-type: none;
+}
