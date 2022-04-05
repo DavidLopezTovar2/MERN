@@ -1,0 +1,34 @@
+.container{
+    margin: 50px;
+}
+
+.button-search-container, .button-add-container, .create-account-container{
+    margin: 20px;
+}
+
+.button-search-container button{
+    width: 13%;
+    height: 30px;
+    border-color: #00BD62;
+    color: #00BD62;
+    background-color: #E1E1E1;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+.button-add-container button{
+    border-color: #00BD62;
+    color: white;
+    background-color: #00BD62;
+    border-radius: 50%;
+    border-style: solid;
+}
+
+.create-account-container button{
+    box-shadow: 3px 3px 3px black;
+    color: white;
+    background-color: #0144CA;
+    border-color: black;
+    width: 15%;
+    height: 30px;
+}
