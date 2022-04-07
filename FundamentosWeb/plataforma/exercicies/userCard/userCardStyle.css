@@ -68,12 +68,12 @@ body{
 
 .profile-picture-container{
     position: absolute;
-    top: 110px;
-    left: 180px;
+    top: 18%;
+    left: 17.5%;
 }
 
 .profile-picture-container img{
-    width: 100px;
+    width: 80px;
     height: auto;
 }
 
@@ -230,7 +230,6 @@ body{
     background-color: #404040;
     color: white;
     align-items: center;
-    border: 1px solid red
 }
 
 .connections-header-container span{
@@ -240,7 +239,7 @@ body{
     border-style: solid;
     background-color: #888888;
     border-color: #888888;
-    
+    padding: 4px;
 }
 
 .connections-header-container p{
@@ -248,7 +247,10 @@ body{
 }
 
 .connections-items-container{
-    border: 1px solid red
+    border-top: 0px inset gray;
+    border-right: 2px inset gray;
+    border-bottom: 2px inset gray;    
+    border-left: 2px inset gray;
 
 }
 
@@ -264,5 +266,35 @@ body{
 }
 
 .connections-person-container p{
-    padding-left: 8px;
+    padding: 0 20% 0 8px;
+    width: 30%;
+}
+
+.connections-checks-container{
+    margin-left: 10px;
+    display: flex;
+}
+
+.connections-checks-container img{
+    margin: 2px;
+    height: 30px;
+    width: auto;
+}
+
+.my-connections-container{
+    height: auto;
+    width: 60%;
+    margin-left: 50px;
+    border: 2px solid gray;
+}
+
+
+.my-connections-viewmore-container{
+    display: flex;
+    padding: 6px 20px;
+    height: 30px;
+    width: auto;
+    align-items: center;
+    vertical-align: middle;
+    border-top: 2px inset gray;
 }
