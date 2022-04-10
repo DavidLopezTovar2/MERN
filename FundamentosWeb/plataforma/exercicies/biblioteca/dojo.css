@@ -1,4 +1,4 @@
-/* CSS reset */
+
 *{
   margin: 0;
   padding: 0;
@@ -6,7 +6,6 @@
   font-family: sans-serif;
 }
     
-/* Clase fixed-width container que se "autocentrará" a sí misma */
 .container {
   width: 1200px;
   margin: 0 auto;
