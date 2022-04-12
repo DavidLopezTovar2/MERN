@@ -8,5 +8,14 @@
 </head>
 <body>
     <script src="introJS.js"></script>
+    <div id="root">
+        <!-- Este contenido será dinámico -->
+        <h1 onmouseover="onHover()" onmouseleave="hoverLeft()">Hey</h1>
+        <form action="" onsubmit="event.preventDefault(); greet()">
+            <input type="text" placeholder="Ingresa tu nombre" id="username">
+            <button type="submit">Click me</button>
+        </form>
+        <div id="message"></div>
+    </div>
 </body>
 </html>
