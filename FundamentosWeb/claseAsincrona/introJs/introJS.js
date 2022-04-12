@@ -66,10 +66,13 @@ function liqueurStoreTernary(age){
         'Bienvenido';
 }
 
+// ----------------------- Actual JS ----------------------------------------------------------
+
 function greet(){
     const username = document.getElementById('username').value;
     //alert(`Hola ${username}`);
-    document.getElementById('message').innerHTML = username;
+    let addDiv = `<div class="block"> ${username} </div>`;
+    document.getElementById('answers').innerHTML += addDiv;
 }
 
 function onHover(){

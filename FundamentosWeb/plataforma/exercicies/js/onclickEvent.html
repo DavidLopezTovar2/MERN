@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="onClickEvent.js"></script>
+    <link rel="stylesheet" href="onclickElement.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Dojonary
+        </h1>
+        <input type="text" placeholder="Search">
+        <button onclick="changeStatus(this)">
+            Login
+        </button>
+    </header>
+    <section>
+        <div class="posts-container">
+            <div class="post-container">
+                <div class="info-post-container">
+                    <h1>Ninja</h1>
+                    <p> <span>noun</span> </p>
+                    <p>Plural: <span> ninjas</span> </p>
+                    <button onclick="ninjaAlert()">13 likes</button>
+                </div>
+                <div class="description-post-container">
+                    <p>A practitioner skilled in the Japanese art of Ninjutsu</p>
+                </div>
+            </div>
+            <div class="post-container">
+                <div class="info-post-container">
+                    <h1>Ninja</h1>
+                    <p> <span>noun</span> </p>
+                    <p>Plural: <span> ninjas</span></p>
+                    <button onclick="ninjaAlert()">34 likes</button>
+                </div>
+                <div class="description-post-container">
+                    <p>A programmer who breaks down problem with zen-like focus</p>
+                </div>
+            </div>
+        </div>
+        <div class="dictionary-container">
+            <div class="definition-container">
+                <h2>Dojonary is defined by <span>YOU</span></h2>
+                <button onclick="removeButton(this)">Add definition</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
