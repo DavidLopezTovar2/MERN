@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="makingConnections.css">
+    <title>User card</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header-container">
+            <h2>Profile</h2>
+            <ul>
+                <li> <a href="">Home</a></li>
+                <li> <a href="">My profile</a></li>
+                <li> <a href="">Find connections</a> </li>
+            </ul>
+            <button>
+                Sign out
+            </button>
+        </header>
+        <div class="main-container">
+            <section class="main-info-container">
+                <div>
+                    <div class="top-container"></div>
+                    <div class="profile-picture-container">
+                        <img src="img/man.png" alt="Profile picture">
+                    </div>
+                    <div class="bottom-container">
+                        <h2>David López</h2>
+                        <div class="city-container">
+                            <img src="img/pin.png" alt="Adress logo">
+                            <p>Bogotá, Colombia</p>
+                        </div>
+                        <div class="resume-container">
+                            <p>QA | Fullstack MERN | Scrum methologies</p>
+                            <p>Born to code</p>
+                        </div>
+                        <div class="edit-profile-container">
+                            <img src="img/setting.png" alt="">
+                            <p onclick="editName()">Edit profile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-container">
+                    <div class="header-secion-container">
+                        <h4>Education</h4>
+                    </div>
+                    <div class="education-info-container">
+                        <div class="course-container">
+                            <p>Coding Dojo - Fullstack Bootcamp MERN</p>
+                        </div>
+                        <div class="date-container">
+                            <p>Marzo 2022 - Julio 2022</p>
+                        </div>
+                        <div class="description-container">
+                            <p>HTML, CSS, JS, python, MongoDB, NEXT.js</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <aside class="aside-info-container">
+                <div class="connections-container">
+                    <div class="connections-header-container">
+                        <p><span>2</span> Connection Requests</p>
+                    </div>
+                    <div class="connections-items-container">
+                        <div class="connections-person-container">
+                            <img src="img/userp.png" alt="User photo">
+                            <p>Tood E</p>
+                            <div class="connections-checks-container">
+                                <button onclick="request(this,true,1)"><img src="img/check.png"
+                                        alt="Check item"></button>
+                                <button onclick="request(this,false,0)"><img src="img/cross.png"
+                                        alt="Cross item"></button>
+                            </div>
+                        </div>
+                        <div class="connections-person-container">
+                            <img src="img/userp.png" alt="User photo">
+                            <p>Phil K</p>
+                            <div class="connections-checks-container">
+
+                                <button onclick="request(this,true,2)"><img src="img/check.png"
+                                        alt="Check item"></button>
+                                <button onclick="request(this,false,0)"><img src="img/cross.png"
+                                        alt="Cross item"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-connections-container">
+                    <div class="my-connections-header-container">
+                        <div class="connections-header-container">
+                            <p><span>4</span> Your connections</p>
+                        </div>
+                    </div>
+                    <div class="my-connections-items-container">
+                        <div class="connections-person-container">
+                            <img src="img/userp.png" alt="User photo">
+                            <p>Adrien</p>
+                        </div>
+                        <div class="connections-person-container">
+                            <img src="img/userp.png" alt="User photo">
+                            <p>Anne J</p>
+                        </div>
+                        <div class="connections-person-container">
+                            <img src="img/userp.png" alt="User photo">
+                            <p>Alayne T</p>
+                        </div>
+                        <div class="connections-person-container">
+                            <img src="img/userp.png" alt="User photo">
+                            <p>Arry y</p>
+                        </div>
+                    </div>
+                    <div class="my-connections-viewmore-container">
+                        <p><a href="">View more</a></p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+    <script src="makingConnections.js"></script>
+</body>
+
+</html>
