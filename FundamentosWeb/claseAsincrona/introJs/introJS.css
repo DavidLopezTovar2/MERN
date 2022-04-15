@@ -4,3 +4,85 @@
     font-family: sans-serif;
 }
 
+body{
+    text-align: center;
+    margin: 30px 30%;
+    height: auto;
+}
+
+section{
+    padding: 10px;
+    background-color: rgb(114, 194, 255);
+    border-radius: 20px;
+    transition: background-color 2s ease-in;
+}
+
+section h1 {
+    margin: 10px;
+}
+
+section p{
+    margin: 0 0 20px 0;
+}
+
+section form{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+section form input{
+    height: 20px;
+}
+
+section form button{   
+    background-color: rgb(70, 70, 252);
+    border-radius: 5px;
+    padding: 3px 5px;
+    color: white;
+    margin: 10px;
+}
+
+
+.block-container{
+    margin: 15px 0;
+    padding: 5px 5px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.block-container p{
+    width: 85%;
+}
+
+.block-container button{
+    margin: 3px;
+    height: 10%;
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.block-container button i{
+    color: red;
+    font-size:10%px;
+}
+
+.erase-answers-container{
+    background-color: red;
+}
+#erase-answers-container button{
+    border-radius: 5px;
+    background-color: red;
+    border-color: black;
+    color: white;
+    padding: 3px 5px;
+}

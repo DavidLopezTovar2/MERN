@@ -71,17 +71,36 @@ function liqueurStoreTernary(age){
 function greet(){
     const username = document.getElementById('username').value;
     //alert(`Hola ${username}`);
-    let addDiv = `<div class="block"> ${username} </div>`;
+    if (document.getElementById('username').value == ``){
+        return;
+    }
+    let addDiv = `<div class="block-container"> <p>${username}</p> <button onclick="eraseAnswers(this)"><i class="fa-solid fa-square-xmark"></i></button></div>`;
     document.getElementById('answers').innerHTML += addDiv;
+
+    let button = `<button onclick="clearTray(this)">Clean tray</button>`;
+    document.getElementById('erase-answers-container').innerHTML = button;
 }
 
 function onHover(){
     console.log('Acabas de hacer hover');
     let h1 = document.getElementsByTagName('h1')[0];
-    h1.style.backgroundColor = 'blue';
+    h1.style.backgroundColor = 'rgb(70, 70, 252)';
+    h1.style.color= 'white';
+    h1.style.borderRadius = '5px';
 }
 
 function hoverLeft(){
     let h1 = document.getElementsByTagName('h1')[0];
-    h1.style.backgroundColor = 'white';
+    h1.style.backgroundColor = 'rgb(114, 194, 255)';
+    h1.style.color= 'black';
+}
+
+function eraseAnswers(element){
+    element.parentElement.remove();
+}
+
+function clearTray(element){
+    const node = document.getElementById('answers');
+    node.innerHTML = '';
+    element.remove();
 }

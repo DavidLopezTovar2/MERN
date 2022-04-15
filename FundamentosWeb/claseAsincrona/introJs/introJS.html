@@ -7,17 +7,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="introJS.css">
     <script src="introJS.js"></script>
+    <script src="https://kit.fontawesome.com/8e9d305860.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="root">
         <!-- Este contenido será dinámico -->
-        <h1 onmouseover="onHover()" onmouseleave="hoverLeft()">Hey</h1>
-        <form action="" onsubmit="event.preventDefault(); greet()">
-            <input type="text" placeholder="Ingresa tu nombre" id="username">
-            <button type="submit">Click me</button>
-        </form>
+        <section>
+            <h1 onmouseover="onHover()" onmouseleave="hoverLeft()">Twita!</h1>
+            <p>Type here your dreams and share with everbody what's that thing you most want</p>
+            <form action="" onsubmit="event.preventDefault(); greet()">
+                <input type="text" placeholder="Type in here ;)" id="username">
+                <button type="submit">Share</button>
+            </form>
+        </section>
         <div id="answers">
-
+        </div>
+        
+        <div id="erase-answers-container">
+            
         </div>
     </div>
 </body>
