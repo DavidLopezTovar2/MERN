@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;600&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+    <title>EasyBay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img class="logo-img" src="imgs/logo.png" alt="Leaf logo EasyBay">
+        <h1>EasyBay</h1>
+        <input type="text" placeholder="Sear for anything">
+        <button onclick="signIn(this)" class="sign-in-button">Sign in</button>
+        <button onclick="cartUpdate()" class="cart-button"><img src="imgs/cart-dark.png" alt="Cart button"></button>
+    </header>
+    <nav>
+        <ul>
+            <li> <button onclick="loadingPage()"> Aeonium</button></li>
+            <li> <button onclick="loadingPage()"> Andormischus</button></li>
+            <li> <button onclick="loadingPage()"> Agave</button></li>
+            <li> <button onclick="loadingPage()"> Aloe</button></li>
+            <li> <button onclick="loadingPage()"> Anacampseros</button></li>
+            <li> <button onclick="loadingPage()"> Aristaloe</button></li>
+            <li> <button onclick="loadingPage()"> More...</button></li>
+        </ul>
+    </nav>
+    <div class="divisor-line"></div>
+    <h1 class="title-page">Your Source for Serious Succulent Specialties</h1>
+    <div class="main-container">
+        <section>
+            <div>
+                <h2>Discover succulent varieties one pot or rack at a time!</h2>
+                <button>
+                    <h5>Discover</h5> <img src="imgs/arrow-light.png" alt="Arrow light right">
+                </button>
+            </div>
+            <img onmouseover="onHover(this)" onmouseleave="hoverLeft(this)" src="imgs/succulents-1.jpg" alt="">
+        </section>
+        <aside>
+            <img src="imgs/aloe-m.jpg" alt="Suculent image">
+            <div>
+                <button>
+                    <h5>SoothingAloe</h5><img src="imgs/arrow-light.png" alt="Arrow light right">
+                </button>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <div class="plant-container">
+            <img src="imgs/aeonium-s.jpg" alt="Aenoium plant">
+            <p>Aenoum</p>
+        </div>
+        <div class="plant-container">
+            <img src="imgs/aloe-s.jpg" alt="Aloe plant">
+            <p>Agave</p>
+        </div>
+        <div class="plant-container">
+            <img src="imgs/cactus-s.jpg" alt="Cactus plant">
+            <p>Cactus</p>
+        </div>
+        <div class="plant-container">
+            <img src="imgs/echeveria-s.jpg" alt="Echeveria plant">
+            <p>Echeveria</p>
+        </div>
+        <div class="plant-container">
+            <img src="imgs/sedum-s.jpg" alt="Sedum plant">
+            <p>Sedum</p>
+        </div>
+        <div class="plant-container">
+            <img src="imgs/sempervivum-s.jpg" alt="Sempervivum plant">
+            <p>Sempervivum</p>
+        </div>
+    </footer>
+    <div class="cookie-container">
+        <img src="imgs/alert-dark.png" alt="Alert icon">
+        <p>This site makes use of third-party cookies, by clicking "I accept" you agree to the terms outlined in our <a href="">cookie policy</a></p>
+        <button onclick="removeCookiesBanner(this)">I Accept</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

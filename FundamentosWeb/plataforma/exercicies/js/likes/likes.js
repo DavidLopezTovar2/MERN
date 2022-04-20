@@ -6,6 +6,3 @@ function liked(person){
     likes[person]++;
     likeElement[person].innerText = likes[person] + " likes(s)";
 }
-
-
-
