@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live calculator</title>
+    <link rel="stylesheet" href="./calculator.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row bg-dark align-items-center">
+            <div class="col-auto">
+                <img class="bg-white rounded my-main-picture" src="./imgs/calculator.png" alt="Calculator image">
+            </div>
+            <div class="col-6">
+                <div class="row text-light"><h3>Basic-calculator</h3></div>
+                <div class="row text-light"><p>David López</p></div>
+            </div>
+            <div class="col-auto" >
+                <button class="main-button p-2 rounded" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">View Editor</button>
+            </div>
+            <div class="col-auto" >
+                <button class="main-button p-2 rounded image-heart" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)"><img src="./imgs/heart.png" alt=""></button>
+            </div>
+            <div class="col-auto" >
+                <button class="second-button p-2 rounded" onmouseover="changeMainColor(2, this)" onmouseleave="returnToMainColor(2, this)">Sign up</button>
+            </div>
+            <div class="col-auto" >
+                <button class="main-button p-2 rounded" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">Log in</button>
+            </div>
+        </div>
+    </div>
+    <div id="calculator" class="bg-dark calculator-container rounded">
+        <div id="display" class="col text-white px-3 h4">0</div>
+        <div class="row justify-content-md-center m-2">
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(7);">7</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(8);">8</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(9);">9</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('/');">÷</button>
+        </div>
+        <div class="row m-2">
+            <button class=" col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(4);">4</button>
+            <button class=" col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(5);">5</button>
+            <button class=" col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(6);">6</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('*');">×</button>
+        </div>
+        <div class="row m-2">
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(1);">1</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(2);">2</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(3);">3</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('-');">−</button>
+        </div>
+        <div class="row m-2">
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="clear()">C</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(0);">0</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press('.');">.</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('+');">+</button>
+        </div>
+        <div class="row m-2">
+            <button id="equals" class="d-flex justify-content-around col rounded m-2" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+            <script src="./calculator.js"></script>
+</body>
+
+</html>
