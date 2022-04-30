@@ -26,47 +26,47 @@
                 <div class="row text-light"><p>David López</p></div>
             </div>
             <div class="col-auto" >
-                <button class="main-button" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">Palabra</button>
+                <button class="main-button p-2 rounded" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">View Editor</button>
             </div>
             <div class="col-auto" >
-                <button class="main-button" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">Palabra</button>
+                <button class="main-button p-2 rounded image-heart" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)"><img src="./imgs/heart.png" alt=""></button>
             </div>
             <div class="col-auto" >
-                <button class="second-button" onmouseover="changeMainColor(2, this)" onmouseleave="returnToMainColor(2, this)">Verde</button>
+                <button class="second-button p-2 rounded" onmouseover="changeMainColor(2, this)" onmouseleave="returnToMainColor(2, this)">Sign up</button>
             </div>
             <div class="col-auto" >
-                <button class="main-button" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">Palabra</button>
+                <button class="main-button p-2 rounded" onmouseover="changeMainColor(1,this)" onmouseleave="returnToMainColor(1,this)">Log in</button>
             </div>
         </div>
     </div>
-    <div id="calculator">
-        <div id="display">0</div>
-        <div class="row">
-            <button onclick="press(7);">7</button>
-            <button onclick="press(8);">8</button>
-            <button onclick="press(9);">9</button>
-            <button class="operator" onclick="setOP('/');">÷</button>
+    <div id="calculator" class="bg-dark calculator-container rounded">
+        <div id="display" class="col text-white px-3 h4">0</div>
+        <div class="row justify-content-md-center m-2">
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(7);">7</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(8);">8</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(9);">9</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('/');">÷</button>
         </div>
-        <div class="row">
-            <button onclick="press(4);">4</button>
-            <button onclick="press(5);">5</button>
-            <button onclick="press(6);">6</button>
-            <button class="operator" onclick="setOP('*');">×</button>
+        <div class="row m-2">
+            <button class=" col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(4);">4</button>
+            <button class=" col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(5);">5</button>
+            <button class=" col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(6);">6</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('*');">×</button>
         </div>
-        <div class="row">
-            <button onclick="press(1);">1</button>
-            <button onclick="press(2);">2</button>
-            <button onclick="press(3);">3</button>
-            <button class="operator" onclick="setOP('-');">−</button>
+        <div class="row m-2">
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(1);">1</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(2);">2</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(3);">3</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('-');">−</button>
         </div>
-        <div class="row">
-            <button onclick="clr();">C</button>
-            <button onclick="press(0);">0</button>
-            <button onclick="press('.');">.</button>
-            <button class="operator" onclick="setOP('+');">+</button>
+        <div class="row m-2">
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="clear()">C</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press(0);">0</button>
+            <button class="col m-1 d-flex justify-content-around number-button rounded-circle" onclick="press('.');">.</button>
+            <button class="operator m-1 d-flex justify-content-around col rounded-circle" onclick="setOP('+');">+</button>
         </div>
-        <div class="row">
-            <button id="equals" onclick="calculate()">=</button>
+        <div class="row m-2">
+            <button id="equals" class="d-flex justify-content-around col rounded m-2" onclick="calculate()">=</button>
         </div>
     </div>
 

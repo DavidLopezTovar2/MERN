@@ -3,6 +3,12 @@
     margin: 0;
 }
 
+button{
+    margin: 10px;
+    border: 0;
+    box-shadow: none; 
+}
+
 .my-main-picture{
     width: 100px;
     display: block;
@@ -14,6 +20,22 @@
     background-color: #686868;
 }
 
+.calculator-container{
+    margin: 20px 35%;
+}
+
 .second-button{
     background-color: #26F91B;
+}
+
+.operator{
+    background-color: orange;
+}
+
+.number-button{
+    background-color: #808080;
+}
+
+.image-heart img{
+    height: 20px;
 }
