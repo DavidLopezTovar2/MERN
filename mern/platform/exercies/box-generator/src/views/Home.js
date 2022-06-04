@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button'
 import Colors from './Colors';
-//import styles from './Home.module.scss';
 
 const Home = () => {
 

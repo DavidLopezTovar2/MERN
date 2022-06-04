@@ -14,8 +14,7 @@ const Colors = ({ colors, removeColor }) => {
                     onClick={() => removeColor(index)}
                     key={index} 
                     style={{ border: '1px solid black', backgroundColor: newColor, height: '60px', width: '60px', margin: '3px'}}
-                />
-                    
+                />     
                 
             ))}
         </div>
