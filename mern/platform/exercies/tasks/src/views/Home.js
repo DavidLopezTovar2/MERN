@@ -36,7 +36,7 @@ const Home = () => {
 
     const deleteTask = (index) => {
         setTasks(tasks?.filter((task,idx)=> idx !== index));
-        setValues(values.filter((value,idx)=> idx !== index));
+        setValues(values?.filter((value,idx)=> idx !== index));
     }
 
     return (
