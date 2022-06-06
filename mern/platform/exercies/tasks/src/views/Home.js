@@ -14,12 +14,12 @@ const Home = () => {
     const addTask = (e) => {
         e.preventDefault();
         setTasks([...tasks,task]);
-        setValues([...values,true])        
+        setValues([...values,false])        
         setTask('');
     }
 
     const updateValues = (index, valor) => {
-        console.log("index" + index);
+        console.log("1:" + values);
         setValues(values.map((value,idx)=>{
             if(index === idx){
                 if(!value)
@@ -31,12 +31,14 @@ const Home = () => {
                 return value;
             }
         }))
-        console.log(values);
+        console.log("2:"+ values);
     }
 
     const deleteTask = (index) => {
         setTasks(tasks?.filter((task,idx)=> idx !== index));
         setValues(values?.filter((value,idx)=> idx !== index));
+        //setValues([...values.slice(0,index)]);
+        console.log(values);
     }
 
     return (
