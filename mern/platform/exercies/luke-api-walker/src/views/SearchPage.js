@@ -10,6 +10,7 @@ const SearchPage = () => {
 
     const searchWithParameters = async () => {
         setRes({});
+        setErrorMsg('');
         switch (searchFor) {
             case 'people':
                 searchPeopleFromService();
@@ -28,8 +29,7 @@ const SearchPage = () => {
 
     const searchPeopleFromService = async() => {
         try{
-            const resapi = await getApiParameters(searchFor,id);
-            console.log(resapi.name);
+            const resapi = await getApiParameters(searchFor,id);            
             setRes({
                 prop1: resapi.name,
                 prop2: resapi.height,
@@ -37,7 +37,7 @@ const SearchPage = () => {
                 prop4: resapi.eye_color
             })
         }catch(err){
-            setErrorMsg(err);
+            setErrorMsg(err.message);
         }        
     }
 
@@ -51,7 +51,7 @@ const SearchPage = () => {
                 prop4: resapi.producer
             })
         }catch(err){
-            setErrorMsg(err);
+            setErrorMsg(err.message);
         }        
     }
 
@@ -65,7 +65,7 @@ const SearchPage = () => {
                 prop4: resapi.crew
             })
         }catch(err){
-            setErrorMsg(err);
+            setErrorMsg(err.message);
         }        
     }
 
@@ -79,11 +79,16 @@ const SearchPage = () => {
                 prop4: resapi.average_height
             })
         }catch(err){
-            setErrorMsg(err);
+            setErrorMsg(err.message);
         }        
     }
 
     const renderCategory = () => {
+        if(errorMsg != ''){
+            return(
+                <div></div>
+            )
+        }
         if(searchFor === 'people'){
             return (
                 <div>
@@ -123,6 +128,17 @@ const SearchPage = () => {
         }
     }
 
+    const showErrorMsg = () => {
+        if(errorMsg != ''){
+            return(
+                <div>
+                    <p>Estos no son los droides que está buscando</p>
+                    <img src="https://phantom-marca.unidadeditorial.es/38c151ca180856af581197ad0db5c39f/resize/660/f/webp/assets/multimedia/imagenes/2022/05/26/16535796722201.jpg" alt="Obi Wan" />
+                </div>
+            )
+        }
+    }
+
     return (
         <div>
             <h1>LUKE API WALKER </h1>
@@ -138,6 +154,7 @@ const SearchPage = () => {
             <button onClick={searchWithParameters}> Search </button>
             <div>
                 {renderCategory()}
+                {showErrorMsg()}
             </div>
         </div>
     )
