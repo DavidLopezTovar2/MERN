@@ -10,7 +10,7 @@ module.exports.getAllDojos = (req, res) => {
 module.exports.createDojo = (req, res) => {
     Dojo.create(req.body)
         .then(newDojo => res.json({ newDojo }))
-        .catch(err => res.status(500).json({ error: err, msg: 'Ups, no hemos podido traer las sucursales' }));
+        .catch(err => res.status(500).json({ error: err, msg: 'Ups, no hemos crear el Dojo' }));
 }
 
 module.exports.addIntructorsToDojo = (req, res) => {
@@ -27,6 +27,16 @@ module.exports.getStudents = (req, res) => {
     ])
         .then(sumStudents => res.json({sumStudents}))
         .catch(err => res.status(500).json({ error: err, msg: 'Ups, no hemos podido traer las sucursales' }))
+}
+
+module.exports.getSucursalWithMoreInstructors = (req, res) => {
+    Dojo.aggregate([
+        {$unwind: "$instructors"}, {$group: {_id: "$name", length: {$sum: 1}}}, {$sort: {length: 1}}, {$limit: 1}
+    ])
+    
+        //.then(sucursal => res.json({sucursal}))
+        .then(sucursal => console.log(sucursal))
+        .catch(err => res.status(500).json({ error: err, msg: 'Ups, no hemos podido traer su request' }))
 }
 
 

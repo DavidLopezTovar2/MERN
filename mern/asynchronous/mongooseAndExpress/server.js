@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const port = 8080;
+const cors = require('cors')
+
 require('./server/config/config.mongoose');
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 require('./server/routes/dojo.routes')(app);
