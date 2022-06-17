@@ -1,0 +1,19 @@
+@import 'antd/dist/antd.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.App {
+  padding: 3%;
+}
+
+.branch-offices-table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cardDetail {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+}
