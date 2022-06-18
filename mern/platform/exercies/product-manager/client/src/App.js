@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Home from './views/Home';
+import Product from './components/Product';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/product/:id' element={<Product/>}/>
         </Routes>
       </BrowserRouter>
     </div>

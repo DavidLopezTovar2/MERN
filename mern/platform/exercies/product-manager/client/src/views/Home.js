@@ -3,12 +3,28 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate, useParams } from "react-router-dom";
-import { createProduct } from "../services/product.service";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { createProduct, getProducts } from "../services/product.service";
+import Nav from 'react-bootstrap/Nav'
 
 const Home = () => {
 
     const navigate = useNavigate();
+    const [products, setProducts] = useState([]);
+
+    const getProductsFromService = async () => {
+        try {
+            let newProducts = await getProducts();
+            console.log(newProducts.data.products);
+            setProducts(newProducts.data.products);
+        } catch (err) {
+            alert(err);
+        }
+    }
+
+    useEffect(() => {
+        getProductsFromService();
+    }, []);
 
     const [product, setProduct] = useState({
         title: '',
@@ -31,13 +47,16 @@ const Home = () => {
     });
 
     const handlerSubmit = async (values) => {
-
-        try{
+        try {
             await createProduct(values);
         }
-        catch(err){
-            alert(err);
+        catch (err) {
+            alert(err + 'HERE');
         }
+    }
+
+    const goToProductDetailed = (id) => {
+        navigate(`/product/${id}`);
     }
 
     return (
@@ -65,7 +84,7 @@ const Home = () => {
                         )}
                         <Form.Group className="mb-3" controlId="formPrice">
                             <Form.Label>Insert price of the product</Form.Label>
-                            <Form.Control type="number" as="textarea" placeholder="Insert price" value={product.price} {...getFieldProps('price')} />
+                            <Form.Control type="number" placeholder="Insert price" value={product.price} {...getFieldProps('price')} />
                         </Form.Group>
                         {errors.price && (
                             <div className="alert-danger">
@@ -88,6 +107,9 @@ const Home = () => {
                 )}
 
             </Formik>
+            <h2>All products</h2>
+            {products?.map((product, idx) => (
+                <h5 key={idx} onClick={() => goToProductDetailed(product._id)}>{product.title}</h5>            ))}
         </>
 
     )

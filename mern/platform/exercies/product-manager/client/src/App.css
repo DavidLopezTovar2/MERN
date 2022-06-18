@@ -39,3 +39,12 @@
     transform: rotate(360deg);
   }
 }
+
+h1{
+  margin: 10%;
+}
+
+h5{
+  color: rgb(47, 113, 255);
+  text-decoration: underline;
+}

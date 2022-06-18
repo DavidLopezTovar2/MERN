@@ -7,8 +7,15 @@ module.exports.getAllProducts = (req, res) => {
 };
 
 module.exports.createProduct = (req, res) => {
-    console.log("🚀 ~ file: dojos.controllers.js ~ line 11 ~ req.body", req.body.dojo)
     Product.create(req.body.product)
         .then(newProduct => res.json({ newProduct }))
         .catch(err => res.status(500).json({ error: err, msg: 'Ups havent been able to create the product' }));
+}
+
+module.exports.getProductById = (req,res) => {
+    console.log('BAAAAACKKK -------- ');
+    console.log(req.params.id);
+    Product.findById(req.params.id)
+        .then(product => res.json({ product }))
+        .catch(err => res.status(404).json({ error: err, msg: 'Ups could not bring the product' }));
 }
