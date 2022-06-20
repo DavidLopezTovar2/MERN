@@ -46,7 +46,6 @@ const FormCreationDojo = () => {
               })
             navigate('/dojos', { replace: true });
             await createDojo(values)
-
         } catch(err) {
             console.log("🚀 ~ file: formCreationDojo.js ~ line 19 ~ handlerSubmit ~ err", err.response.data);
             Object?.entries(err.response.data.error.errors).map((e)=>{

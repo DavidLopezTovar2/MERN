@@ -3,28 +3,17 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { createProduct, getProducts } from "../services/product.service";
-import Nav from 'react-bootstrap/Nav'
+import { useNavigate, useParams } from "react-router-dom";
+import { createProduct, getProductById, updateProductById } from "../services/product.service";
+import Products from '../components/Products';
+
 
 const Home = () => {
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
 
-    const getProductsFromService = async () => {
-        try {
-            let newProducts = await getProducts();
-            console.log(newProducts.data.products);
-            setProducts(newProducts.data.products);
-        } catch (err) {
-            alert(err);
-        }
-    }
-
-    useEffect(() => {
-        getProductsFromService();
-    }, []);
+    const { id } = useParams();    
 
     const [product, setProduct] = useState({
         title: '',
@@ -46,18 +35,29 @@ const Home = () => {
             .required('Required'),
     });
 
+    useEffect(() => {
+        id && getPetFromService();
+    }, [])
+
+    const getPetFromService = async () => {
+        try {
+            const productById = await getProductById(id);            
+            setProduct(productById.data.product);
+
+        } catch(err) {
+            //Todo: Mostrar error en el front
+        }
+    }
+
     const handlerSubmit = async (values) => {
         try {
-            await createProduct(values);
+            console.log(values,id);
+            id ? await updateProductById(id, values) :await createProduct(values);
         }
         catch (err) {
             alert(err + 'HERE');
         }
-    }
-
-    const goToProductDetailed = (id) => {
-        navigate(`/product/${id}`);
-    }
+    }    
 
     return (
         <>
@@ -66,8 +66,6 @@ const Home = () => {
                 initialValues={product}
                 validationSchema={productSchema}
                 onSubmit={values => {
-                    // same shape as initial values
-                    console.log(values);
                     handlerSubmit(values)
                 }}
             >
@@ -101,15 +99,14 @@ const Home = () => {
                             </div>
                         )}
                         <Button variant="primary" type="submit">
-                            Submit
+                        {id ? "Edit" : "Submit"}
                         </Button>
                     </FormikForm>
                 )}
 
             </Formik>
-            <h2>All products</h2>
-            {products?.map((product, idx) => (
-                <h5 key={idx} onClick={() => goToProductDetailed(product._id)}>{product.title}</h5>            ))}
+
+            {id ? <></> : <Products/>}
         </>
 
     )

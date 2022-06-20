@@ -13,9 +13,21 @@ module.exports.createProduct = (req, res) => {
 }
 
 module.exports.getProductById = (req,res) => {
-    console.log('BAAAAACKKK -------- ');
-    console.log(req.params.id);
     Product.findById(req.params.id)
         .then(product => res.json({ product }))
         .catch(err => res.status(404).json({ error: err, msg: 'Ups could not bring the product' }));
+}
+
+module.exports.updateProduct = (req, res) => {
+    console.log(req.body);
+    Product.findByIdAndUpdate(req.params.id, req.body.product, { new: true })
+        .then(updateProduct => res.json({ updateProduct }))
+        .catch(err => res.status(500).json({ msg: 'Ups havent been able to update the product', error: err }))
+}
+
+module.exports.deleteProduct = (req, res) => {
+    console.log(req.params.id);
+    Product.deleteOne({ _id: req.params.id })
+        .then(deleteConfirmation => res.json({ deleteConfirmation }))
+        .catch(err => res.status(500).json({ msg: 'Ups we havent been able to delete the product', error: err }));
 }
