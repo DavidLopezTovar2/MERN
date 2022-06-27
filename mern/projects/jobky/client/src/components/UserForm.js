@@ -8,6 +8,7 @@ import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
 import { createUser } from '../services/user.service';
 import Swal from 'sweetalert2';
+import Header from './Header';
 
 const UserForm = () => {
     const navigate = useNavigate();
@@ -32,6 +33,7 @@ const UserForm = () => {
         passwordConfirmation: Yup.string()
             .oneOf([Yup.ref('password')], 'Your passwords do not match.'),
         description: Yup.string()
+            .min(3, 'Debe tener por lo menos 3 caracteres')
 
     });
 
@@ -49,6 +51,7 @@ const UserForm = () => {
             navigate('/login');
         }
         catch (err) {
+            console.log(err);
             if (err.response.data.error.code === 11000) {
                 Swal.fire({
                     title: 'Ups!',
@@ -62,86 +65,88 @@ const UserForm = () => {
     }
 
     return (
-        <Container>
-            <Formik
-                submitForm
-                initialValues={user}
-                validationSchema={formSchema}
-                onSubmit={values => {
-                    // same shape as initial values
-                    console.log(values);
-                    handlerSubmit(values)
-                }}
-            >
-                {({ errors, getFieldProps }) => (
+        <>
+            <Container>
+                <Formik
+                    submitForm
+                    initialValues={user}
+                    validationSchema={formSchema}
+                    onSubmit={values => {
+                        // same shape as initial values
+                        console.log(values);
+                        handlerSubmit(values)
+                    }}
+                >
+                    {({ errors, getFieldProps }) => (
 
-                    <FormikForm>
-                        <div>
-                            <Form.Group controlId="formName">
-                                <Form.Label>Nombre de usuario</Form.Label>
-                                <Form.Control type="text" placeholder="Nombre" value={user.name} {...getFieldProps('name')} />
-                            </Form.Group>
-                            {errors.name && (
-                                <div className="d-flex text-danger error-form">
-                                    <p>{errors?.name}</p>
-                                </div>
-                            )}
-                        </div >
-                        <div className="mt-3">
+                        <FormikForm>
+                            <div>
+                                <Form.Group controlId="formName">
+                                    <Form.Label>Nombre de usuario</Form.Label>
+                                    <Form.Control type="text" placeholder="Nombre" value={user.name} {...getFieldProps('name')} />
+                                </Form.Group>
+                                {errors.name && (
+                                    <div className="d-flex text-danger error-form">
+                                        <p>{errors?.name}</p>
+                                    </div>
+                                )}
+                            </div >
+                            <div className="mt-3">
 
-                            <Form.Group controlId="formEmail">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" placeholder="Email" value={user.email} {...getFieldProps('email')} />
-                            </Form.Group>
-                            {errors.email && (
-                                <div className="d-flex text-danger error-form">
-                                    <p>{errors?.email}</p>
-                                </div>
-                            )}
-                        </div>
-                        <div className="mt-3">
+                                <Form.Group controlId="formEmail">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="email" placeholder="Email" value={user.email} {...getFieldProps('email')} />
+                                </Form.Group>
+                                {errors.email && (
+                                    <div className="d-flex text-danger error-form">
+                                        <p>{errors?.email}</p>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="mt-3">
 
-                            <Form.Group controlId="formPassword">
-                                <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Contraseña" value={user.password} {...getFieldProps('password')} />
-                            </Form.Group>
-                            {errors.password && (
-                                <div className="d-flex text-danger error-form">
-                                    <p>{errors?.password}</p>
-                                </div>
-                            )}
-                        </div>
-                        <div className="mt-3">
-                            <Form.Group controlId="formConfirmPassword">
-                                <Form.Label>Confirmar contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Confirmar contraseña" {...getFieldProps('passwordConfirmation')} />
-                            </Form.Group>
-                            {errors.passwordConfirmation && (
-                                <div className="d-flex text-danger error-form">
-                                    <p>{errors?.passwordConfirmation}</p>
-                                </div>
-                            )}
-                        </div>
-                        <div className="mt-3">
+                                <Form.Group controlId="formPassword">
+                                    <Form.Label>Contraseña</Form.Label>
+                                    <Form.Control type="password" placeholder="Contraseña" value={user.password} {...getFieldProps('password')} />
+                                </Form.Group>
+                                {errors.password && (
+                                    <div className="d-flex text-danger error-form">
+                                        <p>{errors?.password}</p>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="mt-3">
+                                <Form.Group controlId="formConfirmPassword">
+                                    <Form.Label>Confirmar contraseña</Form.Label>
+                                    <Form.Control type="password" placeholder="Confirmar contraseña" {...getFieldProps('passwordConfirmation')} />
+                                </Form.Group>
+                                {errors.passwordConfirmation && (
+                                    <div className="d-flex text-danger error-form">
+                                        <p>{errors?.passwordConfirmation}</p>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="mt-3">
 
-                            <Form.Group controlId="formDescription">
-                                <Form.Label>Descripción</Form.Label>
-                                <Form.Control type="text" placeholder="Descripción (opcional)" value={user.description} {...getFieldProps('description')} />
-                            </Form.Group>
-                            {errors.description && (
-                                <div className="d-flex text-danger error-form">
-                                    <p>{errors?.description}</p>
-                                </div>
-                            )}
-                        </div>
-                        <Button className="mt-3" variant="primary" type="submit">
-                            Crear usuario
-                        </Button>
-                    </FormikForm>
-                )}
+                                <Form.Group controlId="formDescription">
+                                    <Form.Label>Descripción</Form.Label>
+                                    <Form.Control type="text" placeholder="Descripción (opcional)" value={user.description} {...getFieldProps('description')} />
+                                </Form.Group>
+                                {errors.description && (
+                                    <div className="d-flex text-danger error-form">
+                                        <p>{errors?.description}</p>
+                                    </div>
+                                )}
+                            </div>
+                            <Button className="mt-3" variant="primary" type="submit">
+                                Crear usuario
+                            </Button>
+                        </FormikForm>
+                    )}
 
-            </Formik>
-        </Container>
+                </Formik>
+            </Container>
+        </>
     )
 }
 

@@ -14,12 +14,12 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true, 'Should have a description'],
-        minlength: [3, 'Should have at least 3 character'],
+        required: [true, 'Debe tener una contraseña'],
+        minlength: [3, 'Debe tener por lo menos 3 caracteres'],
     },
     description: {
         type: String,
-        maxlength: [3, 'Cannot have more than 3 skills']
+        minlength: [3, 'Debe tener por lo menos 3 caracteres']
     }
 },{timestamps: true});
 
