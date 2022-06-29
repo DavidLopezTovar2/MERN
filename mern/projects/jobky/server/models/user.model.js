@@ -19,7 +19,6 @@ const UserSchema = new Schema({
     },
     description: {
         type: String,
-        minlength: [3, 'Debe tener por lo menos 3 caracteres']
     }
 },{timestamps: true});
 

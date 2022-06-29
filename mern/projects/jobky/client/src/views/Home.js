@@ -15,25 +15,25 @@ const Home = () => {
             <Header props='home' />
             <Container className="text-center m-5 justify-content-center">
                 <Row>
-                    <Col sm={4}></Col>
-                    <Col sm={4}>
+                    <Col xs={4}></Col>
+                    <Col xs={4}>
                         <h1>Bienvenido a <span className="text-primary font-italic font-weight-bold">JOBKY</span></h1>
                         <h3>¿Qué deseas hacer?</h3>
                     </Col>
-                    <Col sm={4}></Col>
+                    <Col xs={4}></Col>
                 </Row>
                 <Row className="m-5">
-                    <Col sm={3} />
-                    <Col sm={2}>
+                    <Col md={3} />
+                    <Col md={2}>
                         <Button onClick={() => navigate('/login')}>Iniciar sesión</Button>
                     </Col>
-                    <Col sm={2}>
+                    <Col md={2}>
                         <Button onClick={() => navigate('/register')}>Registrarme</Button>
                     </Col>
-                    <Col sm={2}>
+                    <Col md={2}>
                         <Button onClick={() => navigate('/joboffers')}>Ver ofertas</Button>
                     </Col>
-                    <Col sm={3} />
+                    <Col md={3} />
                 </Row>
                 <Button onClick={() => navigate('/joboffers/create')}>
                     Crear oferta laboral

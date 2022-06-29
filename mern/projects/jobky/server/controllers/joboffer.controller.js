@@ -13,3 +13,9 @@ module.exports.getJoboffers = (req, res) => {
         .then(joboffers => res.json({ joboffers }))
         .catch(err => res.status(500).json({ error: err, msg: 'Ups havent been able to bring the offers' }));
 };
+
+module.exports.getJobById = (req, res) => {
+    Joboffer.findById(req.params.id)
+        .then(joboffer => res.json({ joboffer }))
+        .catch(err => res.status(404).json({ error: err, msg: 'Ups no hemos podido traerte la oferta laboral' }));
+}

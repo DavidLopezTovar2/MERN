@@ -35,7 +35,7 @@ const Joboffers = () => {
     return (
         <>
             <Header />
-            <Container className="mt-4">
+            <Container>
                 <Row>
                     {joboffers?.map((joboffer, idx) => (
                         <JobofferCard joboffer={joboffer} idx={idx} />

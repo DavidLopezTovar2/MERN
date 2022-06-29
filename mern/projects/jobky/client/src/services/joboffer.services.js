@@ -4,4 +4,6 @@ export const createJoboffer = (joboffer) => axios.post('http://localhost:8080/ap
     joboffer
 });
 
-export const getJoboffers = () => axios.get('http://localhost:8080/api/joboffers')
+export const getJoboffers = () => axios.get('http://localhost:8080/api/joboffers');
+
+export const getJob = (id) => axios.get(`http://localhost:8080/api/job/${id}`);

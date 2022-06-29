@@ -8,8 +8,6 @@ import jobofferPicture from '../assets/imgs/joboffer.png';
 
 const JobofferForm = () => {
 
-
-
     return (
         <>
             <Header props="joboffer" />
