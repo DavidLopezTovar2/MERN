@@ -8,7 +8,6 @@ import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
 import { createUser } from '../services/user.service';
 import Swal from 'sweetalert2';
-import Header from './Header';
 
 const UserForm = () => {
     const navigate = useNavigate();
@@ -72,8 +71,6 @@ const UserForm = () => {
                     initialValues={user}
                     validationSchema={formSchema}
                     onSubmit={values => {
-                        // same shape as initial values
-                        console.log(values);
                         handlerSubmit(values)
                     }}
                 >
@@ -118,7 +115,7 @@ const UserForm = () => {
                             <div className="mt-3">
                                 <Form.Group controlId="formConfirmPassword">
                                     <Form.Label>Confirmar contraseña</Form.Label>
-                                    <Form.Control type="password" placeholder="Confirmar contraseña" {...getFieldProps('passwordConfirmation')} />
+                                    <Form.Control type="password" placeholder="Confirmar contraseña" />
                                 </Form.Group>
                                 {errors.passwordConfirmation && (
                                     <div className="d-flex text-danger error-form">

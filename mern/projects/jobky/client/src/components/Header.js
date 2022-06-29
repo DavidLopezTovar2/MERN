@@ -18,7 +18,7 @@ const Header = ({ props }) => {
                 return <Button type="button" onClick={() => navigate('/register')}>
                     Registrarse
                 </Button>;
-            case 'jobofferForm':
+            case 'joboffer':
                 return <div>
                     <Button className="m-3" type="button" onClick={() => navigate('/login')}>
                         Login
