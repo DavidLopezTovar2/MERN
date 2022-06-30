@@ -16,15 +16,12 @@ const JobofferCard = ({ joboffer, idx }) => {
 
     return (
         <Col>
-            <Card className="mt-4" id={idx} style={{ width: '16rem' }}>
+            <Card className="mt-4 box-shadow" id={idx} style={{ width: '16rem' }}>
                 <Card.Img className="card-image" variant="top" src={joboffer.image} />
                 <Card.Body>
                     <Card.Title>
                         {joboffer.position}
                     </Card.Title>
-                    <Card.Text style={{height: '90px' }} >
-                        {joboffer.description}
-                    </Card.Text>
                     <Button onClick={() => navigateToJob()} variant="primary">Leer más</Button>
                 </Card.Body>
             </Card>

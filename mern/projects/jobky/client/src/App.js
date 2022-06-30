@@ -10,6 +10,7 @@ import Home from './views/Home';
 import JobofferForm from './views/JobofferForm';
 import Joboffers from './views/Joboffers';
 import Joboffer from './views/Joboffer';
+import EdiJoboffer from './views/EditJoboffer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<Home/>}/>;
           <Route path='/joboffers' element={<Joboffers/>}/>
           <Route path='/joboffers/create' element={<JobofferForm/>}/>
+          <Route path='/joboffers/edit/:id' element={<EdiJoboffer/>}/>
           <Route path="/job/:id" element={<Joboffer/>}/>;
           <Route path='/register' element={<RegisterForm/>}/>
           <Route path='/login' element={<LoginForm/>}/>

@@ -17,5 +17,17 @@ module.exports.getJoboffers = (req, res) => {
 module.exports.getJobById = (req, res) => {
     Joboffer.findById(req.params.id)
         .then(joboffer => res.json({ joboffer }))
-        .catch(err => res.status(404).json({ error: err, msg: 'Ups no hemos podido traerte la oferta laboral' }));
+        .catch(err => res.status(404).json({ error: err, msg: 'ps havent been able to bring the offer' }));
+}
+
+module.exports.deleteJob= (req, res) => {
+    Joboffer.deleteOne({ _id: req.params.id })
+        .then(deleteConfirmation => res.json({ deleteConfirmation }))
+        .catch(err => res.status(500).json({ msg: 'Ups no hemos podido borrar la oferta', error: err }));
+}
+
+module.exports.updateJob = (req, res) => {
+    Joboffer.findByIdAndUpdate(req.params.id, req.body.joboffer, { new: true })
+        .then(updateJoboffer => res.json({ updateJoboffer }))
+        .catch(err => res.status(500).json({ msg: 'Ups no hemos podido actualizar el Dojo', error: err }))
 }

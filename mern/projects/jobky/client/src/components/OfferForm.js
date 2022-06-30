@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from "react-router-dom";
 
@@ -6,11 +6,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Formik, Form as FormikForm } from 'formik';
 import * as Yup from 'yup';
-import { createJoboffer } from '../services/joboffer.services';
+import { createJoboffer, editJoboofer } from '../services/joboffer.services';
 import Swal from 'sweetalert2';
 import Header from './Header';
 
-const OfferForm = () => {
+const OfferForm = ({props}) => {
 
     const navigate = useNavigate();
 
@@ -20,6 +20,16 @@ const OfferForm = () => {
         image: '',
         description: ''
     })
+
+    const startForm = () => {
+        setJoboffer(props);
+        console.log(props);
+    }
+
+    useEffect(() => {
+        props && startForm();
+    }, []);
+
 
     const offerSchema = Yup.object().shape({
         position: Yup.string()
@@ -36,17 +46,27 @@ const OfferForm = () => {
 
     const handlerSubmit = async (values) => {
         try {
-            await createJoboffer(values);
-            Swal.fire({
+            props ? await editJoboofer(props._id, values) :await createJoboffer(values);
+            props ? Swal.fire({
+                text: 'Tu oferta ha sido editada',
+                icon: 'success',
+                confirmButtonColor: '#0275d8'
+            }) : Swal.fire({
                 title: '¡Felicidades!',
                 text: 'Tu oferta ha sido registrada',
                 icon: 'success',
                 confirmButtonColor: '#0275d8'
-            })
-            navigate('/joboffers');
+            });
+            props ? navigate(`/job/${props._id}`) : navigate(`/joboffers`) ;
         }
         catch (err) {
-            Swal.fire({
+            console.log(err);
+            props ? Swal.fire({
+                title: 'Ups!',
+                text: 'No hemos podido editar tu oferta laboral, intenta de nuevo',
+                icon: 'error',
+                confirmButtonColor: '#0275d8'
+            }) : Swal.fire({
                 title: 'Ups!',
                 text: 'No hemos podido crear tu oferta laboral, intenta de nuevo',
                 icon: 'error',
@@ -59,6 +79,7 @@ const OfferForm = () => {
         <>
         <Container>
                 <Formik
+                    enableReinitialize
                     submitForm
                     initialValues={joboffer}
                     validationSchema={offerSchema}
@@ -116,7 +137,7 @@ const OfferForm = () => {
                                 )}
                             </div>
                             <Button className="mt-3" variant="primary" type="submit">
-                                Crear oferta
+                                {props ? 'Editar oferta' : 'Crear oferta'}
                             </Button>
                         </FormikForm>
                     )}

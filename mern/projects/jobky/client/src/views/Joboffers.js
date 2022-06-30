@@ -38,7 +38,7 @@ const Joboffers = () => {
             <Container>
                 <Row>
                     {joboffers?.map((joboffer, idx) => (
-                        <JobofferCard joboffer={joboffer} idx={idx} />
+                        <JobofferCard key={idx} joboffer={joboffer} idx={idx} />
                     ))}
                 </Row>
             </Container>
