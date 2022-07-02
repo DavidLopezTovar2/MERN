@@ -24,14 +24,16 @@ const LoginForm = () => {
             <Header props='login' />
             <Container>
                 <Row className="m-6">
-                    <h1 className="text-center">Bienvenido de nuevo JobKy</h1>
+                    <h1 className="text-center">Bienvenido a <span className="text-primary font-italic font-weight-bold">JOBKY</span></h1>
                 </Row>
                 <Row>
-                    {lateralColumn}
+                    <Col sm={2} className="bg-primary">
+                    </Col>
                     <Col sm={8} className="text-center">
                         <p>Hola</p>
                     </Col>
-                    {lateralColumn}
+                    <Col sm={2} className="bg-primary">
+                    </Col>
                 </Row>
             </Container>
         </>

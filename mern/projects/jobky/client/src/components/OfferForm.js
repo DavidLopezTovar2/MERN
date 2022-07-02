@@ -10,7 +10,7 @@ import { createJoboffer, editJoboofer } from '../services/joboffer.services';
 import Swal from 'sweetalert2';
 import Header from './Header';
 
-const OfferForm = ({props}) => {
+const OfferForm = ({ props }) => {
 
     const navigate = useNavigate();
 
@@ -18,8 +18,16 @@ const OfferForm = ({props}) => {
         position: '',
         company: '',
         image: '',
-        description: ''
+        description: '',
+        experience: ''
     })
+
+    const experience = [
+        'Sin experiencia',
+        'Junior',
+        'Semi senior',
+        'Senior',
+        'Lider',];
 
     const startForm = () => {
         setJoboffer(props);
@@ -41,12 +49,15 @@ const OfferForm = ({props}) => {
             .required('Este campo es requerido'),
         description: Yup.string()
             .required('Este campo es requerido')
-            .min(3, 'Debe tener por lo menos 3 caracteres')
+            .min(3, 'Debe tener por lo menos 3 caracteres'),
+        experience: Yup.string()
+            .required(true, 'Seleccione nivel de experiencia')
+            .oneOf(experience)
     });
 
     const handlerSubmit = async (values) => {
         try {
-            props ? await editJoboofer(props._id, values) :await createJoboffer(values);
+            props ? await editJoboofer(props._id, values) : await createJoboffer(values);
             props ? Swal.fire({
                 text: 'Tu oferta ha sido editada',
                 icon: 'success',
@@ -57,7 +68,7 @@ const OfferForm = ({props}) => {
                 icon: 'success',
                 confirmButtonColor: '#0275d8'
             });
-            props ? navigate(`/job/${props._id}`) : navigate(`/joboffers`) ;
+            props ? navigate(`/job/${props._id}`) : navigate(`/joboffers`);
         }
         catch (err) {
             console.log(err);
@@ -75,9 +86,9 @@ const OfferForm = ({props}) => {
         }
     }
 
-    return(
+    return (
         <>
-        <Container>
+            <Container>
                 <Formik
                     enableReinitialize
                     submitForm
@@ -128,7 +139,7 @@ const OfferForm = ({props}) => {
                             <div className="mt-3">
                                 <Form.Group controlId="formDescription">
                                     <Form.Label>Descripción</Form.Label>
-                                    <Form.Control type="text" placeholder="Descripción" value={joboffer.description} {...getFieldProps('description')} />
+                                    <Form.Control as="textarea" rows={3} type="text" placeholder="Descripción" value={joboffer.description} {...getFieldProps('description')} />
                                 </Form.Group>
                                 {errors.description && (
                                     <div className="d-flex text-danger error-form">
@@ -136,6 +147,23 @@ const OfferForm = ({props}) => {
                                     </div>
                                 )}
                             </div>
+                            <div className="mt-3">
+                                    <Form.Group className="mb-3">
+                                        <Form.Label>Seleccione nivel de experiencia</Form.Label>
+                                        <Form.Select value={joboffer.experience} {...getFieldProps('experience')} >
+                                            <option value="Sin experiencia">Sin experiencia</option>
+                                            <option value="Junior">Junior</option>
+                                            <option value="Semi senior">Semi senior</option>
+                                            <option value="Senior">Senior</option>
+                                            <option value="Lider">Líder</option>
+                                        </Form.Select>
+                                    </Form.Group>
+                                    {errors.experience && (
+                                        <div className="d-flex text-danger error-form">
+                                            <p>{errors?.experience}</p>
+                                        </div>
+                                    )}
+                                </div>
                             <Button className="mt-3" variant="primary" type="submit">
                                 {props ? 'Editar oferta' : 'Crear oferta'}
                             </Button>

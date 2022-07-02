@@ -4,12 +4,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
-import { deleteJob, getJob } from '../services/joboffer.services';
+import { deleteJob, getJob, addVisitsCounter } from '../services/joboffer.services';
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/esm/Button';
 import Swal from 'sweetalert2'
 
 const Joboffer = () => {
+
 
     const { id } = useParams();
     const [joboffer, setJoboffer] = useState();
@@ -19,11 +20,17 @@ const Joboffer = () => {
         id && getJobFromService();
     }, [id]);
 
-    
     const editJoboffer = () => {
         navigate(`/joboffers/edit/${joboffer._id}`);
     }
-    
+
+    const renderExperience = () => (
+        <>
+            <h3 className=" mt-4 font-weight-bold font-italic">Experiencia: </h3>
+            {joboffer?.experience}
+        </>
+    )
+
     const deleteJoboffer = () => {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -33,9 +40,9 @@ const Joboffer = () => {
             confirmButtonColor: '#0275d8',
             cancelButtonColor: '#d9534f',
             confirmButtonText: 'Si, eliminar'
-        }).then(async(result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                try{
+                try {
                     await deleteJob(joboffer._id);
                     Swal.fire(
                         '¡Eliminado!',
@@ -43,7 +50,7 @@ const Joboffer = () => {
                         'success'
                     );
                     navigate('/joboffers');
-                }catch(err){
+                } catch (err) {
                     Swal.fire({
                         title: '¡Ups!',
                         text: 'No pudimos borrar la oferta, intenta de nuevo más tarde',
@@ -59,6 +66,7 @@ const Joboffer = () => {
         try {
             const jobFromService = await getJob(id);
             setJoboffer(jobFromService.data.joboffer);
+            addCounterJob();
         } catch (err) {
             Swal.fire({
                 title: '¡Ups!',
@@ -70,16 +78,39 @@ const Joboffer = () => {
         }
     }
 
+    const addCounterJob = async () => {
+        try {
+            await addVisitsCounter(id);
+        } catch (err) {
+            alert(err)
+        }
+    }
+
     return (
         <>
             <Header />
             <Container className="mt-5">
                 <Row>
-                    <Col md={3} />
-                    <Col md={3}>
-                        <Image src={joboffer?.image} />
+                    <Col key={1} md={3} xs={4} className="justify-content-end">
+                        <Row>
+                            <Button onClick={() => navigate('/joboffers')} className="mt-2 w-50" variant="secondary">Retroceder</Button>
+                        </Row>
+                        <Row>
+                            <Button onClick={() => alert('Not in use')} className="mt-2 w-50 " >Mostrar candidatos</Button>
+                        </Row>
+                        <Row>
+                            <Button onClick={() => deleteJoboffer()} className="mt-2 w-50" variant="danger">Eliminar oferta</Button>
+                        </Row>
+                        <Row>
+                            <Button onClick={() => editJoboffer()} className="mt-2 w-50 " variant="warning">Editar oferta</Button>
+                        </Row>
                     </Col>
-                    <Col md={4}>
+                    <Col key={2} md={3} xs={4} >
+                        <Image src={joboffer?.image} />
+                        {joboffer?.experience && renderExperience()}
+                        <h6 className="mt-4">Número de visitas: {joboffer?.visits}</h6>
+                    </Col>
+                    <Col key={3} md={4} xs={6}>
                         <h3 className="font-weight-bold font-italic">Vacante:</h3>
                         {joboffer?.position}
                         <h3 className="font-weight-bold font-italic">Nombre de la empresa:</h3>
@@ -87,23 +118,10 @@ const Joboffer = () => {
                         <h3 className="font-weight-bold font-italic">Descripción:</h3>
                         {joboffer?.description}
                     </Col>
-                    <Col md={3} />
+                    <Col key={4} md={3} xs={4} />
                 </Row>
-                <Row className="d-flex justify-content-center">
-                    <Col className="d-flex justify-content-end">
-                        <Button onClick={() => navigate('/joboffers')} className="mt-5 w-25" variant="secondary">Retroceder</Button>
-                    </Col>
-                    <Col>
-                        <Button onClick={() => alert('Not in use')} className="mt-5 w-25 p3" >Aplicar</Button>
-                    </Col>
-                </Row>
-                <Row className="d-flex justify-content-center">
-                    <Col className="d-flex justify-content-end">
-                        <Button onClick={() => deleteJoboffer()} className="mt-2 w-25" variant="danger">Eliminar oferta</Button>
-                    </Col>
-                    <Col>
-                        <Button onClick={() => editJoboffer()} className="mt-2 w-25 p3" variant="warning">Editar oferta</Button>
-                    </Col>
+                <Row className="mt-4 d-flex justify-content-center">
+
                 </Row>
             </Container>
         </>

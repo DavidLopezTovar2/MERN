@@ -18,7 +18,15 @@ const JobofferSchema = new Schema({
         type: String,
         required: [true, 'Debe tener una descripción'],
         minlength: [3, 'Debe tener por lo menos 3 caracteres']
-    }
+    },
+    visits: {
+        type: Number,
+        default: 0
+    },
+    experience:{
+        type: String,
+        required: [true, 'Debe tener experiencia']
+    },
 });
 
 const Joboffer = model('Joboffer', JobofferSchema);

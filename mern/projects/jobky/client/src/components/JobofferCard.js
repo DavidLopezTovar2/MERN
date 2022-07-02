@@ -16,7 +16,7 @@ const JobofferCard = ({ joboffer, idx }) => {
 
     return (
         <Col>
-            <Card className="mt-4 box-shadow" id={idx} style={{ width: '16rem' }}>
+            <Card className="mt-4 box-shadow" id={idx} style={{ width: '16rem', height: '19rem' }}>
                 <Card.Img className="card-image" variant="top" src={joboffer.image} />
                 <Card.Body>
                     <Card.Title>

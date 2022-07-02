@@ -14,7 +14,7 @@ import EdiJoboffer from './views/EditJoboffer';
 
 function App() {
   return (
-    <div>
+    <>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}/>;
@@ -26,7 +26,7 @@ function App() {
           <Route path='/login' element={<LoginForm/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 

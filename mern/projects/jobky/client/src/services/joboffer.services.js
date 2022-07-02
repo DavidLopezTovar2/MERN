@@ -13,3 +13,5 @@ export const deleteJob = (id) => axios.delete(`http://localhost:8080/api/joboffe
 export const editJoboofer = (id, joboffer) => axios.put(`http://localhost:8080/api/joboffer/edit/${id}`,{
     joboffer
 })
+
+export const addVisitsCounter = (id) => axios.put(`http://localhost:8080/api/joboffer/add-visists/${id}`);
