@@ -22,7 +22,7 @@ const JobofferCard = ({ joboffer, idx }) => {
                     <Card.Title>
                         {joboffer.position}
                     </Card.Title>
-                    <Button onClick={() => navigateToJob()} variant="primary">Leer más</Button>
+                    <Button className="mt-4" onClick={() => navigateToJob()} variant="primary">Leer más</Button>
                 </Card.Body>
             </Card>
         </Col>

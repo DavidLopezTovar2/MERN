@@ -31,7 +31,6 @@ const OfferForm = ({ props }) => {
 
     const startForm = () => {
         setJoboffer(props);
-        console.log(props);
     }
 
     useEffect(() => {
@@ -52,7 +51,7 @@ const OfferForm = ({ props }) => {
             .min(3, 'Debe tener por lo menos 3 caracteres'),
         experience: Yup.string()
             .required(true, 'Seleccione nivel de experiencia')
-            .oneOf(experience)
+            .oneOf(experience, 'Seleccione alguna experiencia')
     });
 
     const handlerSubmit = async (values) => {
@@ -71,7 +70,6 @@ const OfferForm = ({ props }) => {
             props ? navigate(`/job/${props._id}`) : navigate(`/joboffers`);
         }
         catch (err) {
-            console.log(err);
             props ? Swal.fire({
                 title: 'Ups!',
                 text: 'No hemos podido editar tu oferta laboral, intenta de nuevo',
@@ -83,6 +81,7 @@ const OfferForm = ({ props }) => {
                 icon: 'error',
                 confirmButtonColor: '#0275d8'
             })
+            navigate(`/job/${props._id}`);
         }
     }
 
@@ -95,7 +94,6 @@ const OfferForm = ({ props }) => {
                     initialValues={joboffer}
                     validationSchema={offerSchema}
                     onSubmit={values => {
-                        console.log(values);
                         handlerSubmit(values)
                     }}
                 >

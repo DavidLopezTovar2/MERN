@@ -7,9 +7,7 @@ import Header from '../components/Header';
 import chefPicture from '../assets/imgs/chef-image.png';
 
 const RegisterForm = () => {
-
-
-
+    
     return (
         <>
             <Header props='register' />

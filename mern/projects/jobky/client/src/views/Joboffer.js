@@ -8,12 +8,14 @@ import { deleteJob, getJob, addVisitsCounter } from '../services/joboffer.servic
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/esm/Button';
 import Swal from 'sweetalert2'
+import UserByExperience from '../components/UsersByExperience';
 
 const Joboffer = () => {
 
 
     const { id } = useParams();
-    const [joboffer, setJoboffer] = useState();
+    const [usersRender, setUsersRender] = useState(false);
+    const [joboffer, setJoboffer] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -62,6 +64,7 @@ const Joboffer = () => {
             }
         })
     }
+
     const getJobFromService = async () => {
         try {
             const jobFromService = await getJob(id);
@@ -96,7 +99,7 @@ const Joboffer = () => {
                             <Button onClick={() => navigate('/joboffers')} className="mt-2 w-50" variant="secondary">Retroceder</Button>
                         </Row>
                         <Row>
-                            <Button onClick={() => alert('Not in use')} className="mt-2 w-50 " >Mostrar candidatos</Button>
+                            <Button onClick={() => setUsersRender(true)} className="mt-2 w-50 " >Mostrar candidatos</Button>
                         </Row>
                         <Row>
                             <Button onClick={() => deleteJoboffer()} className="mt-2 w-50" variant="danger">Eliminar oferta</Button>
@@ -120,8 +123,8 @@ const Joboffer = () => {
                     </Col>
                     <Col key={4} md={3} xs={4} />
                 </Row>
-                <Row className="mt-4 d-flex justify-content-center">
-
+                <Row>
+                    {usersRender && <UserByExperience experience={joboffer?.experience} />}
                 </Row>
             </Container>
         </>

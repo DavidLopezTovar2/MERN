@@ -17,7 +17,8 @@ const UserForm = () => {
         email: '',
         password: '',
         description: '',
-        experience: ''
+        experience: '',
+        position: ''
     })
 
     const experience = [
@@ -44,8 +45,9 @@ const UserForm = () => {
                 .min(3, 'Debe tener por lo menos 3 caracteres'),
             experience: Yup.string()
                 .required(true, 'Seleccione nivel de experiencia')
-                .oneOf(experience)
-
+                .oneOf(experience),
+            position: Yup.string()
+                .required('Este campo es requerido e importante para las empresas')
         });
 
     const handlerSubmit = async (values) => {
@@ -158,6 +160,17 @@ const UserForm = () => {
                                     {errors.experience && (
                                         <div className="d-flex text-danger error-form">
                                             <p>{errors?.experience}</p>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mt-3">
+                                    <Form.Group controlId="formPosition">
+                                        <Form.Label>Especialidad</Form.Label>
+                                        <Form.Control type="text" placeholder="Especialidad" value={user.position} {...getFieldProps('position')} />
+                                    </Form.Group>
+                                    {errors.position && (
+                                        <div className="d-flex text-danger error-form">
+                                            <p>{errors?.position}</p>
                                         </div>
                                     )}
                                 </div>

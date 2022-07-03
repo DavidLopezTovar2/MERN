@@ -16,7 +16,7 @@ module.exports.getJoboffers = (req, res) => {
 module.exports.getJobById = (req, res) => {
     Joboffer.findById(req.params.id)
         .then(joboffer => res.json({ joboffer }))
-        .catch(err => res.status(404).json({ error: err, msg: 'ps havent been able to bring the offer' }));
+        .catch(err => res.status(404).json({ error: err, msg: 'Ups havent been able to bring the offer' }));
 }
 
 module.exports.deleteJob= (req, res) => {

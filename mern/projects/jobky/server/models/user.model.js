@@ -23,6 +23,10 @@ const UserSchema = new Schema({
     },
     description: {
         type: String,
+    },
+    position: {
+        type: String,
+        required: [true, 'Especialidad requerida']
     }
 }, { timestamps: true });
 

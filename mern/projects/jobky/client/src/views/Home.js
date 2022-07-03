@@ -33,7 +33,9 @@ const Home = () => {
                     <Col md={2}>
                         <Button onClick={() => navigate('/joboffers')}>Ver ofertas</Button>
                     </Col>
-                    <Col md={3} />
+                    <Col md={3} >
+                        <Button onClick={() => navigate('/users')}>Ver usuarios</Button>
+                        </Col>
                 </Row>
                 <Button onClick={() => navigate('/joboffers/create')}>
                     Crear oferta laboral

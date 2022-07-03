@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Container from 'react-bootstrap/esm/Container';
 import JobofferCard from '../components/JobofferCard';
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const Joboffers = () => {
 
@@ -36,6 +37,11 @@ const Joboffers = () => {
         <>
             <Header />
             <Container>
+                <Row className="mt-4">
+                    <Col></Col>
+                    <Col className="text-center" xs={5}><h1>Ofertas diponibles</h1></Col>
+                    <Col></Col>
+                </Row>
                 <Row>
                     {joboffers?.map((joboffer, idx) => (
                         <JobofferCard key={idx} joboffer={joboffer} idx={idx} />
