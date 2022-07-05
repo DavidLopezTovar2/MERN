@@ -14,9 +14,11 @@ const UsersTable = ({ users, props }) => {
         navigate(`/user/${id}`)
     }
 
-    const renderTable = () => {
-        console.log(users.length)
-        if (users.length != 0) {
+    const renderUsers = () => {
+        if (users.length === 0) {
+            return <h5 className="text-danger mt-4 text-center">Lo sentimos, no hay candidatos disponibles para esta posición.</h5>;
+        }
+        else {
             return <Table className="mt-4" striped bordered hover>
                 <thead>
                     <tr>
@@ -27,7 +29,7 @@ const UsersTable = ({ users, props }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users?.map((user, idx) => (
+                    {users.map((user, idx) => (
                         <tr key={idx}>
                             <td>{user.name}</td>
                             <td>{user.experience}</td>
@@ -37,21 +39,13 @@ const UsersTable = ({ users, props }) => {
                     ))}
                 </tbody>
             </Table>
-            
-        } else if (props === 'joboffer') {
-            return Swal.fire({
-                title: 'Lo siento',
-                text: 'No hay candidatos para esta posición',
-                icon: 'warning',
-                confirmButtonColor: '#0275d8'
-            }).then(function() {navigate('/users')});
 
         }
     }
 
     return (
         <>
-            {renderTable()}
+            {renderUsers()}
         </>
     )
 }
