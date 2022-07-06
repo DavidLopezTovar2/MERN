@@ -13,6 +13,7 @@ import Joboffer from './views/Joboffer';
 import EdiJoboffer from './views/EditJoboffer';
 import Users from './views/Users';
 import User from './views/User';
+import NotFound from './views/NotFound';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/login' element={<LoginForm/>}/>
           <Route path='/users' element={<Users/>}/>
           <Route path='/user/:id' element={<User/>}/>
+          <Route path='/not-found' element={<NotFound/>}/>
         </Routes>
       </BrowserRouter>
     </>

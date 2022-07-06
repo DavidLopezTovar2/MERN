@@ -68,8 +68,12 @@ const Joboffer = () => {
     const getJobFromService = async () => {
         try {
             const jobFromService = await getJob(id);
-            setJoboffer(jobFromService.data.joboffer);
-            addCounterJob();
+            if(jobFromService.data.joboffer){
+                setJoboffer(jobFromService.data.joboffer);
+                addCounterJob();
+            }else {
+                navigate('/not-found');
+            }  
         } catch (err) {
             Swal.fire({
                 title: '¡Ups!',
