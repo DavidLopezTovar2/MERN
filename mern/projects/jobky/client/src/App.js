@@ -14,6 +14,7 @@ import EdiJoboffer from './views/EditJoboffer';
 import Users from './views/Users';
 import User from './views/User';
 import NotFound from './views/NotFound';
+import Feed from './views/Feed';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/users' element={<Users/>}/>
           <Route path='/user/:id' element={<User/>}/>
           <Route path='/not-found' element={<NotFound/>}/>
+          <Route path='/home' element={<Feed/>}/>
         </Routes>
       </BrowserRouter>
     </>

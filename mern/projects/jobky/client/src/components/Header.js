@@ -35,10 +35,9 @@ const Header = ({ props }) => {
 
     return (
         <div className="header d-flex align-items-center justify-content-center">
-            <Link to='/'>
+            {/* <Link to='/home'> */}
                 <img className="header-logo m-3" src={icon} alt='jobky logo' />
-
-            </Link>
+            {/* </Link> */}
             {renderButton()}
         </div>
     )
