@@ -8,7 +8,9 @@ import { deleteJob, getJob, addVisitsCounter } from '../services/joboffer.servic
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/esm/Button';
 import Swal from 'sweetalert2'
+import {useCookies} from 'react-cookie';
 import UserByExperience from '../components/UsersByExperience';
+import Cookies from 'js-cookie';
 
 const Joboffer = () => {
 
@@ -16,6 +18,7 @@ const Joboffer = () => {
     const { id } = useParams();
     const [usersRender, setUsersRender] = useState(false);
     const [joboffer, setJoboffer] = useState([]);
+    const [cookies, setCookie] = useCookies();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -55,17 +58,18 @@ const Joboffer = () => {
                 } catch (err) {
                     Swal.fire({
                         title: '¡Ups!',
-                        text: 'No pudimos borrar la oferta, intenta de nuevo más tarde',
+                        text: 'No cuentas con los permisos para borrar esta oferta',
                         icon: 'error',
                         confirmButtonColor: '#0275d8'
                     })
-                    navigate('/joboffers');
                 }
             }
         })
     }
 
     const getJobFromService = async () => {
+        let allCookies = Cookies.get('_usertoken')
+        console.log(allCookies);
         try {
             const jobFromService = await getJob(id);
             if(jobFromService.data.joboffer){
@@ -102,6 +106,7 @@ const Joboffer = () => {
                         <Row>
                             <Button onClick={() => navigate('/joboffers')} className="mt-2 w-50" variant="secondary">Retroceder</Button>
                         </Row>
+                        {}
                         <Row>
                             <Button onClick={() => setUsersRender(true)} className="mt-2 w-50 " >Mostrar candidatos</Button>
                         </Row>

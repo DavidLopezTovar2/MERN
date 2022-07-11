@@ -72,7 +72,7 @@ const OfferForm = ({ props }) => {
         catch (err) {
             props ? Swal.fire({
                 title: 'Ups!',
-                text: 'No hemos podido editar tu oferta laboral, intenta de nuevo',
+                text: 'No cuentas con los permisos para editar esta oferta',
                 icon: 'error',
                 confirmButtonColor: '#0275d8'
             }) : Swal.fire({

@@ -1,12 +1,56 @@
 
 const User = require('../models/user.model');
-
+const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
 
 module.exports.createUser = (req, res) => {
     console.log(req.body.user);
     User.create(req.body.user)
         .then(newUser => res.json({ newUser }))
         .catch(err => res.status(500).json({ error: err, msg: 'Ups havent been able to create the user' }));
+}
+
+module.exports.login = async(req, res) => {
+    try{
+        const user = await User.findOne({ email: req.body.user.email });
+        if(!user){
+            return res.status(403).json({ msg: 'Usuario no existe en base de datos' });
+        }else{
+            const isValidPassword = await bcrypt.compare(req.body.user.password, user.password);
+            if(isValidPassword){
+                const newJwt = jwt.sign({
+                    _id: user._id,
+                    name: user.name
+                }, process.env.SECRETKEY);
+                res
+                    .cookie('_usertoken', newJwt, { httpOnly: true})
+                    .json({ msg: 'Se ha logueado', 'cookie': newJwt})
+                    .send('Done');
+            }else{
+                return res.status(403).json([{ msg: 'Contraseña incorrecta'}])
+            }
+        }
+    }catch(err){
+        return res.status(403).json({ msg: 'Credenciales invalidas', err })
+    }        
+}
+
+module.exports.logout = (_,res) => {
+    try {
+        return res
+                .clearCookie('_usertoken')
+                .json({ msg: 'Token eliminado'})
+    }catch(err){
+        return res.status(403).json({ msg: 'Usuario sin token', err })
+    }
+}
+
+module.exports.ingreso = (_, res) => {
+    try{
+        res.json({ msg: 'Bienvenido' });
+    }catch(err){
+        return res.status(403).json({ msg: 'Te vas ahora mismo, no tienes permisos', err })
+    }
 }
 
 module.exports.getUsers = (req, res) => {

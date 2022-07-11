@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/esm/Container';
 import JobofferCard from '../components/JobofferCard';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/esm/Button';
 
 const Joboffers = () => {
 
@@ -40,7 +41,11 @@ const Joboffers = () => {
                 <Row className="mt-4">
                     <Col></Col>
                     <Col className="text-center" xs={5}><h1>Ofertas diponibles</h1></Col>
-                    <Col></Col>
+                    <Col>
+                        <Button onClick={() => navigate('/home')}>
+                            Home
+                        </Button>
+                    </Col>
                 </Row>
                 <Row>
                     {joboffers?.map((joboffer, idx) => (

@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+axios.defaults.withCredentials = true;
+
 export const createJoboffer = (joboffer) => axios.post('http://localhost:8080/api/joboffers/create',{
     joboffer
 });

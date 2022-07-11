@@ -10,7 +10,7 @@ const JobofferForm = () => {
 
     return (
         <>
-            <Header props="joboffer" />
+            <Header />
             <Container className="mt-3 mb-3">
             <Row>
                     <h1 className="d-flex align-items-center justify-content-center">Registra aqui tu nueva oferta laboral</h1>
